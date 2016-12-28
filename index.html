@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -91,7 +91,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/27/football/" data-id="ciuro88fr0002ncmg51jrlsqp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/27/football/" data-id="cix8xyasi0002o8mgpl5f0ss9" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -101,10 +101,10 @@
 
 
   
-    <article id="post-as a father during the three years" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-HashMap&amp;ArrayMap&amp;SparseArray" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/10/27/as a father during the three years/" class="article-date">
-  <time datetime="2016-10-27T00:48:41.000Z" itemprop="datePublished">2016-10-27</time>
+    <a href="/2016/10/12/HashMap&ArrayMap&SparseArray/" class="article-date">
+  <time datetime="2016-10-12T12:16:41.000Z" itemprop="datePublished">2016-10-12</time>
 </a>
     
   </div>
@@ -115,7 +115,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/27/as a father during the three years/">as a father during the three years</a>
+      <a class="article-title" href="/2016/10/12/HashMap&ArrayMap&SparseArray/">HashMap   ArrayMap   SparseArray</a>
     </h1>
   
 
@@ -123,14 +123,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>刚刚过去的日子，小朋友已经三岁。而我作为父亲，也已经三岁的。如果说三年前的自己还是一个男孩，那三年后的自己已经经常问自己，自己是一个合格的父亲吗？</p>
-<p>四年前结婚的时候，作为儿子，还是嘻嘻哈哈。作为丈夫，那点微不足道的责任感也并没有让我感觉到压力。而现在，三岁的小朋友时时刻刻的提醒我，你已经不再有任性的资格。</p>
-<p>和小朋友一起的日子是快乐的，也是忙碌辛苦的。</p>
+        <h3 id="HashMap的原理"><a href="#HashMap的原理" class="headerlink" title="HashMap的原理"></a>HashMap的原理</h3><p>HashMap</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/27/as a father during the three years/" data-id="ciuro88fp0001ncmg4ils5css" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/12/HashMap&ArrayMap&SparseArray/" data-id="cix8xyasc0000o8mg3f5fe71s" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -171,7 +169,8 @@
 <li>删除数据</li>
 <li>查询数据（包括全部查询和条件查询）</li>
 </ol>
-<p>因此我们使用方法也可以对应：</p>
+<p>我们现在假设我们的数据库是有三列数据  1.int类型的id 2.String类型的name  3. boolean类型的isCurrent</p>
+<p>对应的使用方法如下：</p>
 <h5 id="1-初始化数据库管理类"><a href="#1-初始化数据库管理类" class="headerlink" title="1. 初始化数据库管理类"></a>1. 初始化数据库管理类</h5><p>我们知道android提供了一个SQLiteOpenHelper来完成对sqlite的读取，初始化，以及更新。<br>我们一般使用一个独立类DBManger来管理sqlite，DBManger其实也就是通过SQLiteOpenHelper管理数据库。一般情况下，我们这样来读取并初始化SQLiteOpenHelper。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">public class DBHelper extends SQLiteOpenHelper &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public class DBManager &#123;</div><div class="line">    private DBHelper helper;</div><div class="line">    private SQLiteDatabase db;</div><div class="line">    public DBManager(Context context) &#123;</div><div class="line">        helper = new DBHelper(context);</div><div class="line">        db = helper.getWritableDatabase();</div><div class="line">    &#125;</div><div class="line">   </div><div class="line">    public void closeDB() &#123;</div><div class="line">        db.close();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h5 id="2-数据表的建立和更新"><a href="#2-数据表的建立和更新" class="headerlink" title="2. 数据表的建立和更新"></a>2. 数据表的建立和更新</h5><p>数据表只在第一次使用即创建数据库的时候（SQLiteOpenHelper的onCreate）会建立。而数据表结构的更新（如加列删列）会在SQLiteOpenHelper的onUpdate中调用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">public class DBHelper extends SQLiteOpenHelper &#123;</div><div class="line"></div><div class="line">    private static final String DATABASE_NAME = &quot;test.db&quot;;</div><div class="line">    private static final int DATABASE_VERSION = 1;</div><div class="line"></div><div class="line">    public DBHelper(Context context) &#123;</div><div class="line">        //CursorFactory设置为null,使用默认值</div><div class="line">        super(context, DATABASE_NAME, null, DATABASE_VERSION);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //数据库第一次被创建时onCreate会被调用</div><div class="line">    @Override</div><div class="line">    public void onCreate(SQLiteDatabase db) &#123;</div><div class="line">        db.execSQL(&quot;CREATE TABLE IF NOT EXISTS facedb&quot; +</div><div class="line">                &quot;(_id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, iscurrent INTEGER)&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //如果DATABASE_VERSION值被改为2,系统发现现有数据库版本不同,即会调用onUpgrade</div><div class="line">    @Override</div><div class="line">    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) &#123;</div><div class="line">        db.execSQL(&quot;ALTER TABLE facedb ADD COLUMN other STRING&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -193,7 +192,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/12/android-sqlite/" data-id="ciuro88fl0000ncmgohvbj0da" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/12/android-sqlite/" data-id="cix8xyasg0001o8mgkmjvfrjc" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -238,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/12/hello-world/" data-id="ciuro88ft0003ncmg6uo4orpi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/12/hello-world/" data-id="cix8xyask0003o8mghm3ull2f" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -273,7 +272,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -282,7 +281,7 @@
           </li>
         
           <li>
-            <a href="/2016/10/27/as a father during the three years/">as a father during the three years</a>
+            <a href="/2016/10/12/HashMap&ArrayMap&SparseArray/">HashMap   ArrayMap   SparseArray</a>
           </li>
         
           <li>
@@ -306,7 +305,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 Steven Xerrard<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
